@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main">
+        <div class="search_wrapper">
+            <form action="" method="get" class="search_bar" id="form"> 
+                <label for="search">Search Bar</label>
+                <input type="text" id="search" name="search">
+
+
+            </form>
+
+            <button type="submit" form="form" id="submit" class="submit">Search</button>
+        </div>
+
+        <div class="wrapper">
+            <div class="location">
+                <span class="location-span"></span>
+                <span class="location-desc"></span>
+            </div>
+            <div class="temp">
+                <span class="box_label">Temperature</span>
+                <span class="temp-span"></span>
+            </div>
+
+            <div class="info-wrapper">
+                <div class="info">
+                    <span class="box_label">Feels Like</span>
+                    <span class="info-span" id="feels_like"></span>
+                </div>
+                <div class="info">
+                    <span class="box_label">High</span>
+                    <span class="info-span" id="high"></span>
+                </div>
+                <div class="info">
+                    <span class="box_label">Low</span>
+                    <span class="info-span" id="low"></span>
+                </div>
+                <div class="info">
+                    <span class="box_label">Humidity</span>
+                    <span class="info-span" id="humidity"></span>
+                </div>
+
+
+            </div>
+            <div class="units">Switch Units (°C/°F)</div>
+        </div>
+    </div>
+    
+
+
+
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
