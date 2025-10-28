@@ -1,8 +1,19 @@
 import {fetchData} from './api.js'
+import { updateVisualData } from './display.js';
+import {default_search, search_value} from './index.js';
 
 
 export async function processData(location, units) {
-    const data = await fetchData(location, units);
+    let data;
+
+    try {
+        data = await fetchData(location, units);
+    }
+
+    catch (error) {
+        alert("Please enter a valid location. Make sure to check spelling.")
+        console.log(error);
+    }
 
     return {
         temp: data.currentConditions.temp,
@@ -11,7 +22,9 @@ export async function processData(location, units) {
         feels_like: data.currentConditions.feelslike,
         high: data.days[0].tempmax,
         low: data.days[0].tempmin,
-        humidity: data.currentConditions.humidity
+        humidity: data.currentConditions.humidity,
+        conditions: data.currentConditions.conditions,
+        resolved_location: data.resolvedAddress
     }
 }
 
