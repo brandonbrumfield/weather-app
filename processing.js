@@ -3,7 +3,7 @@ import { updateVisualData } from './display.js';
 import {default_search, search_value} from './index.js';
 
 
-export async function processData(location, units) {
+export async function processData(location, previous_location, units) {
     let data;
 
     try {
@@ -13,6 +13,15 @@ export async function processData(location, units) {
     catch (error) {
         alert("Please enter a valid location. Make sure to check spelling.")
         console.log(error);
+
+        try {
+            data = await fetchData(previous_location, units);
+        }
+
+        catch(error) {
+        alert("Please enter a valid location. Make sure to check spelling.")
+        console.log(error);
+        }
     }
 
     return {

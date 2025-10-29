@@ -18,8 +18,37 @@ const info_text = document.querySelectorAll(".info, .temp, .temp-span, .units");
 
 
 
-export async function updateVisualData(location, units="us", unit_symbol="°F") {
-    let data = await processData(location, units);
+export async function updateVisualData(location, units="us", unit_symbol="°F", unit_click = false) {
+
+    let previous_location = location_span.textContent;
+
+
+    if (unit_click == false) {
+    
+        location_span.textContent = "Loading...";
+        location_desc.textContent = "";
+        temp_container.textContent = "...";
+        cond_container.textContent = "...";
+        feels_like_span.textContent = "...";
+        high_span.textContent = "...";
+        low_span.textContent = "...";
+        humidity_span.textContent = "...";
+    }
+
+    else if (unit_click == true) {
+        
+        temp_container.textContent = "...";
+        cond_container.textContent = "...";
+        feels_like_span.textContent = "...";
+        high_span.textContent = "...";
+        low_span.textContent = "...";
+        humidity_span.textContent = "...";
+
+    }
+    
+   
+    
+    let data = await processData(location, previous_location, units);
 
     updateBackground(data);
 

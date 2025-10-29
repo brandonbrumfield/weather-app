@@ -12,24 +12,24 @@ const location = document.querySelector(".location-span");
 let units = "us"; 
 let search_value = "Chicago";
 let default_search = "Chicago";
-let previous_search = "";
+
 
 updateVisualData(search_value);
 
 unit_button.addEventListener("click", () => {
 
-    if (search_value == "") {
+    if (search_value == "" && location.textContent != "Loading...") {
         search_value = location.textContent;
     }
 
     if (units == "us") {
         units = "metric";
-        updateVisualData(search_value, units, "°C");
+        updateVisualData(search_value, units, "°C", true);
     }
     
     else {
         units = "us";
-        updateVisualData(search_value, units, "°F");
+        updateVisualData(search_value, units, "°F", true);
     }
 } )
 
